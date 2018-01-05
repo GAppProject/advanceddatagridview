@@ -61,6 +61,7 @@ namespace Zuby.ADGV
         /// </summary>
         public void SetDoubleBuffered()
         {
+        
             PropertyInfo propertyInfo = this.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
             propertyInfo.SetValue(this, true, null);
         }

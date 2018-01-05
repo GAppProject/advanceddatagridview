@@ -36,10 +36,11 @@ namespace AdvancedDataGridViewSample
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["culture"]);
             }
 
-            FormMain formMain = new FormMain();
+            //FormMain formMain = new FormMain();
+            Menu form = new Menu();
             if (HighDPIEnabled)
-                formMain.AutoScaleMode = AutoScaleMode.Dpi;
-            Application.Run(formMain);
+                form.AutoScaleMode = AutoScaleMode.Dpi;
+            Application.Run(form);
         }
     }
 }
