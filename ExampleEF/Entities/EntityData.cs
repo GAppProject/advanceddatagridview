@@ -11,7 +11,7 @@ namespace App.Entities
         public int Id { set; get; }
         public int IntData { set; get; }
         public string StringData { set; get; }
-       // public DateTime DateTimeData { set; get; }
+      //  public DateTime DateTimeData { set; get; }
         public Boolean BooleanData { set; get; }
     }
 }

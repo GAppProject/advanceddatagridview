@@ -12,6 +12,8 @@ namespace AdvancedDataGridViewSample
 {
     public partial class Example1 : Form
     {
+        List<EntityData> ls = new List<EntityData>();
+
         public Example1()
         {
             InitializeComponent();
@@ -19,25 +21,45 @@ namespace AdvancedDataGridViewSample
 
         private void Example1_Load(object sender, EventArgs e)
         {
-            List<EntityData> ls = new List<EntityData>();
+          
             for (int i = 0; i < 100; i++)
             {
                 ls.Add(new EntityData()
                 {
                     StringData = "string" + i,
                     IntData = i,
-                    DateTimeData = DateTime.Now.AddDays(i)
+                    
                 });
             }
 
+            
             bindingSource1.DataSource = ls;
+           // bindingSource1.Filter = "([StringData] IN ('string1', 'string0'))";
+
             this.advancedDataGridView1.DataSource = bindingSource1;
-            this.advancedDataGridViewSearchToolBar1.SetColumns(this.advancedDataGridView1.Columns);
+            this.dataGridView1.DataSource = bindingSource1;
+
+
+        }
+
+        private void RefReshData()
+        {
+            bindingSource1.DataSource = ls;
         }
 
         private void advancedDataGridView1_FilterStringChanged(object sender, EventArgs e)
         {
             bindingSource1.Filter = advancedDataGridView1.FilterString;
+           
+       
+            txtFilter.Text = advancedDataGridView1.FilterString;
+            RefReshData();
+        }
+
+        private void advancedDataGridView1_SortStringChanged(object sender, EventArgs e)
+        {
+            this.txtSort.Text = this.advancedDataGridView1.SortString;
+            RefReshData();
         }
     }
 }

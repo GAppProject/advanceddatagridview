@@ -44,7 +44,7 @@ namespace AdvancedDataGridViewSample
                 {
                     StringData = "string" + i,
                     IntData = i,
-                    DateTimeData = DateTime.Now.AddDays(i)
+                   
                 });
             }
 
@@ -62,7 +62,7 @@ namespace AdvancedDataGridViewSample
 
             bindingSource_main.DataMember = _dataTable.TableName;
 
-           // bindingSource_main.DataSource = ls;
+            bindingSource_main.DataSource = ls;
 
           //  advancedDataGridViewSearchToolBar_main.SetColumns(advancedDataGridView_main.Columns);
         }
